@@ -5,6 +5,10 @@ if [ -f ~/.bash_profile.local ]; then
   source ~/.bash_profile.local
 fi
 
+if [ -f ~/.aliases.local ]; then
+  source ~/.aliases.local
+fi
+
 # Aliases (included in this repo)
 source ~/.aliases
 
