@@ -13,6 +13,7 @@ alias gco="git checkout"
 alias ga="git add"
 alias gg="git grep"
 alias gt="git tag"
+alias gpd="git pull --rebase"
 
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
