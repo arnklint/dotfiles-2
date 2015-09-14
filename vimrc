@@ -115,7 +115,7 @@ map <C-\> :tnext<CR>
 
 " Per filetype config
 autocmd FileType markdown setlocal spell spelllang=en_us textwidth=79 colorcolumn=80
-autocmd Filetype gitcommit setlocal spell textwidth=50
+autocmd Filetype gitcommit setlocal spell textwidth=50 colorcolumn=51
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
