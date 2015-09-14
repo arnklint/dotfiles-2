@@ -52,6 +52,7 @@ Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-markdown'
 Plugin 'ap/vim-css-color'
+Plugin 'elixir-lang/vim-elixir'
 
 " THEME
 Plugin 'mrtazz/molokai.vim'
