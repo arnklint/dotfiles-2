@@ -1,0 +1,6 @@
+[user]
+	name = Jonas Arnklint
+	email = jonas.arnklint@gmail.com
+
+[commit]
+	template = ~/.gitmessage
