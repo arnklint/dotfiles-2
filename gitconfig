@@ -4,3 +4,6 @@
 
 [commit]
 	template = ~/.gitmessage
+
+[include]
+	path = ~/.gitconfig.local
