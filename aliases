@@ -8,7 +8,7 @@ alias cl="clear"
 # GIT
 alias gs="git status"
 alias gb="git branch"
-alias gc="git commit"
+alias gc="git commit -v"
 alias gp="git push"
 alias gco="git checkout"
 alias ga="git add"
