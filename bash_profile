@@ -1,5 +1,6 @@
 # Use VIM
 export EDITOR='vim'
+export HISTFILESIZE=5500
 
 if [ -f ~/.bash_profile.local ]; then
   source ~/.bash_profile.local
