@@ -5,3 +5,8 @@
 
 ## Update
 `~/.dotfiles/update.sh`
+
+## Utils
+Good to have:
+
+* `brew install coreutils`
