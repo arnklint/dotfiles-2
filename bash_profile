@@ -6,12 +6,19 @@ if [ -f ~/.bash_profile.local ]; then
   source ~/.bash_profile.local
 fi
 
+# Aliases
 if [ -f ~/.aliases.local ]; then
   source ~/.aliases.local
 fi
-
-# Aliases (included in this repo)
+# Aliases included in this repo
 source ~/.aliases
+
+# Commands
+if [ -f ~/.commands.local ]; then
+  source ~/.commands.local
+fi
+# Commands included
+source ./commands
 
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell;

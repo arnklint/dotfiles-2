@@ -1,0 +1,4 @@
+# JSON prettyfied
+function jsoncurl() {
+  curl "$@" | python -mjson.tool
+}
