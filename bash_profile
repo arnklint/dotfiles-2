@@ -18,7 +18,7 @@ if [ -f ~/.commands.local ]; then
   source ~/.commands.local
 fi
 # Commands included
-source ./commands
+source ~/.commands
 
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell;

@@ -2,3 +2,7 @@
 function jsoncurl() {
   curl "$@" | python -mjson.tool
 }
+
+function jsoncurl2() {
+  curl "$@" | jq
+}
