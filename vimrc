@@ -54,6 +54,9 @@ Plugin 'tpope/vim-markdown'
 Plugin 'ap/vim-css-color'
 Plugin 'elixir-lang/vim-elixir'
 
+" Music stuff :)
+Plugin 'dermusikman/sonicpi.vim'
+
 " THEME
 Plugin 'mrtazz/molokai.vim'
 Plugin 'nelstrom/vim-mac-classic-theme'
