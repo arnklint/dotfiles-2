@@ -1,12 +1,12 @@
 [user]
-	name = Jonas Arnklint
-	email = jonas.arnklint@gmail.com
+    name = Jonas Arnklint
+    email = jonas.arnklint@gmail.com
 
 [commit]
-	template = ~/.gitmessage
+    template = ~/.gitmessage
 
 [include]
-	path = ~/.gitconfig.local
+    path = ~/.gitconfig.local
 
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
@@ -17,12 +17,12 @@
     # Use colors in Git commands that are capable of colored output when outputting to the terminal
     ui = auto
 [color "branch"]
-	current = yellow reverse
-	local = yellow
+    current = yellow reverse
+    local = yellow
     remote = green
 [color "diff"]
     meta = yellow bold
-	frag = magenta bold
+    frag = magenta bold
     old = red bold
     new = green bold
 [color "status"]
@@ -34,3 +34,5 @@
     oldHighlight = "red bold 52"
     newNormal = "green bold"
     newHighlight = "green bold 22"
+[push]
+    default = simple
