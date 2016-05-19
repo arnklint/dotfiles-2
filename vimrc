@@ -1,4 +1,5 @@
 set nocompatible
+set backupcopy=yes
 " set mapleader = ","
 
 filetype on
