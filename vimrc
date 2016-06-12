@@ -1,11 +1,9 @@
 set nocompatible
-set backupcopy=yes
+set backupcopy=no
 " set mapleader = ","
 
+" filetype off
 filetype on
-filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle
@@ -13,9 +11,6 @@ call vundle#rc()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
-" IGNORE
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 " SEARCH
 Plugin 'mileszs/ack.vim'
@@ -57,10 +52,13 @@ Plugin 'elixir-lang/vim-elixir'
 
 " Music stuff :)
 Plugin 'dermusikman/sonicpi.vim'
+let g:sonicpi_enabled = 0
 
 " THEME
 Plugin 'mrtazz/molokai.vim'
-Plugin 'nelstrom/vim-mac-classic-theme'
+Plugin 'altercation/vim-colors-solarized'
+set background=light
+colorscheme solarized
 
 set nobackup
 set nowritebackup
@@ -68,7 +66,7 @@ set noswapfile
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
-syntax on
+syntax enable
 set nohidden
 set history=10000
 set number
@@ -93,9 +91,10 @@ set smartcase
 " Tab completion
 set wildmode=longest,list
 set wildmenu
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*,public/javascripts/compiled
 set wildignore+=tmp,*.orig,*.jpg,*.png,*.gif,log,solr,.sass-cache,.jhw-cache
-set wildignore+=bundler_stubs,build,error_pages,bundle,build,error_pages
+set wildignore+=bundler_stubs,build,error_pages,bundle,build,error_pages,node_modules
 
 " Status bar
 set laststatus=2
