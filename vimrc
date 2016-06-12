@@ -57,7 +57,7 @@ let g:sonicpi_enabled = 0
 " THEME
 Plugin 'mrtazz/molokai.vim'
 Plugin 'altercation/vim-colors-solarized'
-set background=light
+set background=dark
 colorscheme solarized
 
 set nobackup
