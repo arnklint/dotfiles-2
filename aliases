@@ -23,6 +23,7 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
 
 # Docker related
 alias dm="docker-machine"
