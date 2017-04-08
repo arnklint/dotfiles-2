@@ -29,7 +29,7 @@ let g:ctrlp_working_path_mode = 0
 Plugin 'tpope/vim-repeat'
 
 " SYNTAX
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
 " let g:syntastic_quiet_warnings = { 'level': 'warnings' }
 
@@ -49,6 +49,10 @@ Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-markdown'
 Plugin 'ap/vim-css-color'
 Plugin 'elixir-lang/vim-elixir'
+
+" syntax asynchrounous lint style
+Plugin 'w0rp/ale'
+let g:ale_emit_conflict_warnings = 0
 
 " Music stuff :)
 Plugin 'dermusikman/sonicpi.vim'
