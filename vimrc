@@ -47,6 +47,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-markdown'
+Plugin 'fatih/vim-go'
 Plugin 'ap/vim-css-color'
 Plugin 'elixir-lang/vim-elixir'
 
