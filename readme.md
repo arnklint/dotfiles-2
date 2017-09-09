@@ -10,3 +10,4 @@
 Good to have:
 
 * `brew install coreutils`
+* `brew install ripgrep` - needed for <leader>r to search

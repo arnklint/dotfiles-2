@@ -1,6 +1,6 @@
 set nocompatible
 set backupcopy=no
-" set mapleader = ","
+let mapleader = ","
 
 " filetype off
 filetype on
@@ -13,16 +13,20 @@ call vundle#rc()
 Plugin 'gmarik/Vundle.vim'
 
 " SEARCH
-Plugin 'mileszs/ack.vim'
-map <leader>a :Ack!<space>
-map <leader>A :Ack! <C-R><C-W><CR>
+" Plugin 'mileszs/ack.vim'
+" map <leader>a :Ack!<space>
+" map <leader>A :Ack! <C-R><C-W><CR>
+
+Plugin 'jremmen/vim-ripgrep'
+map <leader>r :Rg<space>
+" map <leader>R :Ack! <C-R><C-W><CR>
 
 " OPEN
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|node_modules$'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|node_modules|dist|log$'
 let g:ctrlp_working_path_mode = 0
 
 " REPEAT
