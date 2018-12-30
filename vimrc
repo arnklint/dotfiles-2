@@ -45,6 +45,10 @@ let g:syntastic_mode_map = { 'mode': 'active',
 Plugin 'ervandew/supertab'
 Plugin 'aaronjensen/matchindent.vim'
 
+" Markdown zen mode?
+Plugin 'junegunn/goyo.vim'
+Plugin 'amix/vim-zenroom2'
+
 " SYNTAX STUFF
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'pangloss/vim-javascript'
@@ -56,12 +60,12 @@ Plugin 'ap/vim-css-color'
 Plugin 'elixir-lang/vim-elixir'
 
 " syntax asynchrounous lint style
-Plugin 'w0rp/ale'
-let g:ale_emit_conflict_warnings = 0
+" Plugin 'w0rp/ale'
+" let g:ale_emit_conflict_warnings = 0
 
 " Music stuff :)
-Plugin 'dermusikman/sonicpi.vim'
-let g:sonicpi_enabled = 0
+" Plugin 'dermusikman/sonicpi.vim'
+" let g:sonicpi_enabled = 0
 
 " THEME
 Plugin 'mrtazz/molokai.vim'
