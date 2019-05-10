@@ -26,7 +26,7 @@ Plugin 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|^node_modules|^dist|^log$'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|node_modules|dist|^log$'
 let g:ctrlp_working_path_mode = 0
 
 " REPEAT
@@ -44,6 +44,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
 " TAB OR INDENT
 Plugin 'ervandew/supertab'
 Plugin 'aaronjensen/matchindent.vim'
+
+" TODO, yes
+Plugin 'aserebryakov/vim-todo-lists'
 
 " Markdown zen mode?
 Plugin 'junegunn/goyo.vim'
@@ -131,7 +134,8 @@ map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
 
 " Per filetype config
-autocmd FileType markdown setlocal spell spelllang=en_us textwidth=79 colorcolumn=80
+autocmd FileType markdown setlocal spell spelllang=en_us 
+" textwidth=79 colorcolumn=80
 autocmd Filetype gitcommit setlocal spell textwidth=50 colorcolumn=51
 
 " allow backspacing over everything in insert mode
@@ -193,4 +197,4 @@ nnoremap <D-right> :vertical resize +5<cr>
 
 " Linebreak on 500 characters
 set lbr
-set tw=500
+set tw=1000

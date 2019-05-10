@@ -36,3 +36,8 @@
     newHighlight = "green bold 22"
 [push]
     default = simple
+[credential]
+    helper = !aws --profile va codecommit credential-helper $@
+    UseHttpPath = true
+#[url "ssh://"]
+#    insteadOf = https://
