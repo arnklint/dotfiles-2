@@ -33,13 +33,27 @@ let g:ctrlp_working_path_mode = 0
 Plugin 'tpope/vim-repeat'
 
 " SYNTAX
-" Plugin 'scrooloose/syntastic'
-let g:syntastic_enable_signs=1
-" let g:syntastic_quiet_warnings = { 'level': 'warnings' }
+"Plugin 'vim-syntastic/syntastic'
+"let g:syntastic_enable_signs=1
+"let g:syntastic_quiet_messages = { 'level': 'warnings' }
 
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['ruby'] }
+"let g:syntastic_mode_map = { 'mode': 'active',
+"                           \ 'active_filetypes': [],
+"                           \ 'passive_filetypes': ['ruby', 'javascript'] }
+
+"let g:syntastic_javascript_checkers = ['jshint']
+
+" syntax asynchrounous lint style
+Plugin 'w0rp/ale'
+" let g:ale_emit_conflict_warnings = 0
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\ }
+let g:ale_fixers = {
+\   'javascript': ['prettier-eslint'],
+\ }
+let g:ale_lint_on_save = 1
+
 
 " TAB OR INDENT
 Plugin 'ervandew/supertab'
@@ -61,10 +75,6 @@ Plugin 'tpope/vim-markdown'
 Plugin 'fatih/vim-go'
 Plugin 'ap/vim-css-color'
 Plugin 'elixir-lang/vim-elixir'
-
-" syntax asynchrounous lint style
-" Plugin 'w0rp/ale'
-" let g:ale_emit_conflict_warnings = 0
 
 " Music stuff :)
 " Plugin 'dermusikman/sonicpi.vim'
