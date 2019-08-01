@@ -30,3 +30,7 @@ alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulato
 alias dm="docker-machine"
 alias d="docker"
 alias dc="docker-compose"
+
+# Postgres related
+alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
