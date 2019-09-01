@@ -75,6 +75,11 @@ Plugin 'tpope/vim-markdown'
 Plugin 'fatih/vim-go'
 Plugin 'ap/vim-css-color'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'prettier/vim-prettier'
+
+" Prettier config, to do on autosave on these formats. Install prettier by doing `yarn global add prettier`
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 " Music stuff :)
 " Plugin 'dermusikman/sonicpi.vim'
