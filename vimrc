@@ -46,13 +46,20 @@ Plugin 'tpope/vim-repeat'
 " syntax asynchrounous lint style
 Plugin 'w0rp/ale'
 " let g:ale_emit_conflict_warnings = 0
+let g:ale_linter_aliases = {
+\   'svelte': ['css', 'javascript']
+\ }
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'svelte': ['stylelint', 'eslint']
 \ }
 let g:ale_fixers = {
 \   'javascript': ['prettier-eslint'],
+\   'svelte': ['prettier-eslint', 'prettier_standard'],
+\   '*': ['remove_trailing_lines', 'trim_whitespace']
 \ }
 let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1
 
 
 " TAB OR INDENT
@@ -61,6 +68,8 @@ Plugin 'aaronjensen/matchindent.vim'
 
 " TODO, yes
 Plugin 'aserebryakov/vim-todo-lists'
+let g:VimTodoListsDatesEnabled = 1
+let g:VimTodoListsMoveItems = 0
 
 " Markdown zen mode?
 Plugin 'junegunn/goyo.vim'
@@ -75,11 +84,14 @@ Plugin 'tpope/vim-markdown'
 Plugin 'fatih/vim-go'
 Plugin 'ap/vim-css-color'
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'prettier/vim-prettier'
+Plugin 'evanleck/vim-svelte'
+" Plugin 'prettier/vim-prettier'
 
 " Prettier config, to do on autosave on these formats. Install prettier by doing `yarn global add prettier`
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+" let g:prettier#config#semi = 'false'
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json PrettierAsync ",*.graphql,*.md,*.vue
+
 
 " Music stuff :)
 " Plugin 'dermusikman/sonicpi.vim'
@@ -149,7 +161,7 @@ map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 map <C-\> :tnext<CR>
 
 " Per filetype config
-autocmd FileType markdown setlocal spell spelllang=en_us 
+autocmd FileType markdown setlocal spell spelllang=en_us
 " textwidth=79 colorcolumn=80
 autocmd Filetype gitcommit setlocal spell textwidth=50 colorcolumn=51
 
@@ -204,7 +216,7 @@ else
   map <C-l> <C-w>l
 endif
 
-" resize current buffer by +/- 5 
+" resize current buffer by +/- 5
 nnoremap <D-left> :vertical resize -5<cr>
 nnoremap <D-down> :resize +5<cr>
 nnoremap <D-up> :resize -5<cr>
