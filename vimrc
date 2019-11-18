@@ -54,12 +54,16 @@ let g:ale_linters = {
 \   'svelte': ['stylelint', 'eslint']
 \ }
 let g:ale_fixers = {
-\   'javascript': ['prettier-eslint'],
-\   'svelte': ['prettier-eslint', 'prettier_standard'],
+\   'javascript': ['prettier', 'eslint'],
+\   'svelte': ['prettier', 'eslint'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace']
 \ }
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
+
+let g:ale_sign_error = "◉"
+let g:ale_sign_warning = "◉"
+
 
 
 " TAB OR INDENT
@@ -76,8 +80,11 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'amix/vim-zenroom2'
 
 " SYNTAX STUFF
+Plugin 'sheerun/vim-polyglot'
+
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'pangloss/vim-javascript'
+Plugin 'elzr/vim-json'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-markdown'
@@ -85,7 +92,23 @@ Plugin 'fatih/vim-go'
 Plugin 'ap/vim-css-color'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'evanleck/vim-svelte'
-" Plugin 'prettier/vim-prettier'
+Plugin 'Shougo/context_filetype.vim'
+Plugin 'prettier/vim-prettier'
+
+" because brew don't do latest version of vim
+let g:go_version_warning = 0
+
+" Svelte
+if !exists('g:context_filetype#same_filetypes')
+    let g:context_filetype#filetypes = {}
+endif
+let g:context_filetype#filetypes.svelte =
+            \ [
+            \    {'filetype' : 'javascript', 'start' : '<script>', 'end' : '</script>'},
+            \    {'filetype' : 'css', 'start' : '<style>', 'end' : '</style>'},
+            \ ]
+au! BufNewFile,BufRead *.svelte set ft=html
+
 
 " Prettier config, to do on autosave on these formats. Install prettier by doing `yarn global add prettier`
 " let g:prettier#config#semi = 'false'
