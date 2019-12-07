@@ -2,8 +2,8 @@
 export EDITOR='vim'
 export HISTFILESIZE=5500
 
-if [ -f ~/.bash_profile.local ]; then
-  source ~/.bash_profile.local
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
 fi
 
 # Aliases
@@ -20,15 +20,22 @@ fi
 # Commands included
 source ~/.dotfiles/commands
 
-# Autocorrect typos in path names when using `cd`
-shopt -s cdspell;
-
 # Add random emojis to impress SCRUM-masters
-git_branch='`git rev-parse --abbrev-ref HEAD 2> /dev/null | sed s/^/\ \|\ /`'
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats 'on branch %b'
+
+# Set up the prompt (with git branch name)
+setopt PROMPT_SUBST
+PROMPT='%n in ${PWD/#$HOME/~} ${vcs_info_msg_0_} > '
+
 emojis=(🐶 🐺 🐱 🐭 🐹 🐰 🐸 🐯 🐨 🐻 🐷 🐮 🐵 🐼 🐧 🐍 🐢 🐙 🐠 🐳 🐬 🐥)
 emoji='`echo ${emojis[$RANDOM % 22]}`'
 # PS1="\[\033[0;36m\]\W$git_branch | $emoji  >\[\e[0m\]"
-PS1="\[\033[0;36m\]\W$git_branch >\[\e[0m\]"
+# PS1="\[\033[0;36m\]\W$git_branch >\[\e[0m\]"
 
 # Old with time
 # PS1="\[\033[0;36m\]\T | \W$git_branch | $emoji  >\[\e[0m\]"
