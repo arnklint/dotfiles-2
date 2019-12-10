@@ -64,7 +64,8 @@ let g:ale_fix_on_save = 1
 let g:ale_sign_error = "◉"
 let g:ale_sign_warning = "◉"
 
-
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 
 " TAB OR INDENT
 Plugin 'ervandew/supertab'
@@ -122,9 +123,9 @@ au! BufNewFile,BufRead *.svelte set ft=html
 
 " THEME
 Plugin 'mrtazz/molokai.vim'
-Plugin 'altercation/vim-colors-solarized'
-set background=dark
-colorscheme solarized
+" Plugin 'altercation/vim-colors-solarized'
+" set background=dark
+" colorscheme solarized
 
 set nobackup
 set nowritebackup
