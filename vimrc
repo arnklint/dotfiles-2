@@ -87,6 +87,9 @@ Plugin 'amix/vim-zenroom2'
 Plugin 'sheerun/vim-polyglot'
 let g:javascript_sql_dialect = "sql"
 
+" Needed for sql syntax highlighting
+let g:javascript_sql_dialect = 'pgsql'
+
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
