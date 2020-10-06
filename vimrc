@@ -5,6 +5,9 @@ let mapleader = ","
 " removes ^M line breaks
 set ff=unix
 
+" old regexp engine, usually turned on by plugins may cause lag (typescript eg)
+set re=0
+
 " filetype off
 filetype on
 
@@ -54,13 +57,18 @@ let g:ale_linter_aliases = {
 \ }
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'svelte': ['stylelint', 'eslint']
+\   'svelte': ['stylelint', 'eslint'],
 \ }
+"\   'typescript': ['eslint']
+
+"'tsserver', , 'tslint'],
+
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'svelte': ['prettier', 'eslint'],
-\   '*': ['remove_trailing_lines', 'trim_whitespace']
+\   'html': ['prettier'],
 \ }
+"\   'typescript': ['eslint'],
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 
@@ -74,17 +82,13 @@ highlight clear ALEWarningSign
 Plugin 'ervandew/supertab'
 Plugin 'aaronjensen/matchindent.vim'
 
-" TODO, yes
-Plugin 'aserebryakov/vim-todo-lists'
-let g:VimTodoListsDatesEnabled = 1
-let g:VimTodoListsMoveItems = 0
-
 " Markdown zen mode?
 Plugin 'junegunn/goyo.vim'
 Plugin 'amix/vim-zenroom2'
 
 " SYNTAX STUFF
 Plugin 'sheerun/vim-polyglot'
+let g:javascript_sql_dialect = "sql"
 
 " Needed for sql syntax highlighting
 let g:javascript_sql_dialect = 'pgsql'
@@ -102,6 +106,9 @@ Plugin 'evanleck/vim-svelte'
 Plugin 'Shougo/context_filetype.vim'
 Plugin 'prettier/vim-prettier'
 
+"Plugin 'leafgarland/typescript-vim'
+"Plugin 'peitalin/vim-jsx-typescript'
+
 " because brew don't do latest version of vim
 let g:go_version_warning = 0
 
@@ -115,7 +122,6 @@ let g:context_filetype#filetypes.svelte =
             \    {'filetype' : 'css', 'start' : '<style>', 'end' : '</style>'},
             \ ]
 au! BufNewFile,BufRead *.svelte set ft=html
-
 
 " Prettier config, to do on autosave on these formats. Install prettier by doing `yarn global add prettier`
 " let g:prettier#config#semi = 'false'
