@@ -2,6 +2,9 @@ set nocompatible
 set backupcopy=no
 let mapleader = ","
 
+" removes ^M line breaks
+set ff=unix
+
 " filetype off
 filetype on
 
