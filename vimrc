@@ -5,6 +5,9 @@ let mapleader = ","
 " removes ^M line breaks
 set ff=unix
 
+" old regexp engine, usually turned on by plugins may cause lag (typescript eg)
+set re=0
+
 " filetype off
 filetype on
 
@@ -55,8 +58,8 @@ let g:ale_linter_aliases = {
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'svelte': ['stylelint', 'eslint'],
-\   'typescript': ['eslint']
 \ }
+"\   'typescript': ['eslint']
 
 "'tsserver', , 'tslint'],
 
@@ -103,8 +106,8 @@ Plugin 'evanleck/vim-svelte'
 Plugin 'Shougo/context_filetype.vim'
 Plugin 'prettier/vim-prettier'
 
-Plugin 'leafgarland/typescript-vim'
-Plugin 'peitalin/vim-jsx-typescript'
+"Plugin 'leafgarland/typescript-vim'
+"Plugin 'peitalin/vim-jsx-typescript'
 
 " because brew don't do latest version of vim
 let g:go_version_warning = 0
