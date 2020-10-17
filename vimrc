@@ -18,6 +18,10 @@ call vundle#rc()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+" Codepond FTW!
+" Plugin 'file:///Users/jonas/Sites/_201/codepond/extension-vim/vim-codepond', {'pinned': 1}
+Plugin 'git@github.com:arnklint/codepond.git', {'rtp': 'extension-vim/vim-codepond'}
+
 " SEARCH
 " Plugin 'mileszs/ack.vim'
 " map <leader>a :Ack!<space>
@@ -58,8 +62,8 @@ let g:ale_linter_aliases = {
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'svelte': ['stylelint', 'eslint'],
+\   'typescript': ['eslint']
 \ }
-"\   'typescript': ['eslint']
 
 "'tsserver', , 'tslint'],
 
@@ -67,8 +71,8 @@ let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'svelte': ['prettier', 'eslint'],
 \   'html': ['prettier'],
+\   'typescript': ['eslint'],
 \ }
-"\   'typescript': ['eslint'],
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 
@@ -106,8 +110,8 @@ Plugin 'evanleck/vim-svelte'
 Plugin 'Shougo/context_filetype.vim'
 Plugin 'prettier/vim-prettier'
 
-"Plugin 'leafgarland/typescript-vim'
-"Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
 
 " because brew don't do latest version of vim
 let g:go_version_warning = 0
