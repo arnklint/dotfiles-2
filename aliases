@@ -15,6 +15,7 @@ alias gco="git checkout"
 alias ga="git add"
 alias gg="git grep"
 alias gt="git tag"
+alias gpm="git push origin master"
 alias gpd="git pull --rebase"
 alias gl="git log -n 30 --oneline --graph"
 
