@@ -1,3 +1,4 @@
+set relativenumber
 set nocompatible
 set backupcopy=no
 let mapleader = ","
@@ -19,8 +20,8 @@ call vundle#rc()
 Plugin 'gmarik/Vundle.vim'
 
 " Codepond FTW!
-" Plugin 'file:///Users/jonas/Sites/_201/codepond/extension-vim/vim-codepond', {'pinned': 1}
-Plugin 'git@github.com:arnklint/codepond.git', {'rtp': 'extension-vim/vim-codepond'}
+Plugin 'file:///Users/jonas/Sites/_201/codepond/', {'pinned': 1, 'rtp': 'extension-vim/vim-codepond'}
+" Plugin 'git@github.com:arnklint/codepond.git', {'rtp': 'extension-vim/vim-codepond'}
 
 " SEARCH
 " Plugin 'mileszs/ack.vim'
@@ -109,6 +110,8 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'evanleck/vim-svelte'
 Plugin 'Shougo/context_filetype.vim'
 Plugin 'prettier/vim-prettier'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
 
 Plugin 'leafgarland/typescript-vim'
 Plugin 'peitalin/vim-jsx-typescript'
