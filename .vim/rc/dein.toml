@@ -1,42 +1,48 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
 
-[[plugins]]
-repo = 'morhetz/gruvbox'
+# [[plugins]]
+# repo = 'morhetz/gruvbox'
 
 # [[plugins]]
 # repo = 'altercation/vim-colors-solarized'
 
-[[plugins]]
-repo = 'tpope/vim-fugitive'
+# [[plugins]]
+# repo = 'tpope/vim-fugitive'
 
-[[plugins]]
-repo = 'tpope/vim-rhubarb'
+# [[plugins]]
+# repo = 'tpope/vim-rhubarb'
 
-[[plugins]]
-repo = 'itchyny/lightline.vim'
+# [[plugins]]
+# repo = 'itchyny/lightline.vim'
 
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-depends = ['defx-git', 'defx-icons']
-hook_add = """
-source ~/.dotfiles/.config/nvim/plugins/defx.rc.vim
-"""
+# [[plugins]]
+# repo = 'junegunn/fzf'
+# build = './install'
+# merged: false
+# call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
 
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
+# [[plugins]]
+# repo = 'Shougo/defx.nvim'
+# depends = ['defx-git', 'defx-icons']
+# hook_add = """
+# source ~/.dotfiles/.config/nvim/plugins/defx.rc.vim
+# """
 
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
+# [[plugins]]
+# repo = 'kristijanhusak/defx-icons'
+# 
+# [[plugins]]
+# repo = 'kristijanhusak/defx-git'
 
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_add = """
-source ~/.dotfiles/.config/nvim/plugins/denite.rc.vim
-"""
+# [[plugins]]
+# repo = 'Shougo/denite.nvim'
+# hook_add = """
+# source ~/.dotfiles/.config/nvim/plugins/denite.rc.vim
+# """
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -53,14 +59,14 @@ hook_post_update = '''
   let g:dein#plugin.build = cmd
 '''
 
-[[plugins]]
-repo = 'jlanzarotta/bufexplorer'
+# [[plugins]]
+# repo = 'jlanzarotta/bufexplorer'
 
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
+# [[plugins]]
+# repo = 'ryanoasis/vim-devicons'
 
-[[plugins]]
-repo = 'jiangmiao/auto-pairs'
+# [[plugins]]
+# repo = 'jiangmiao/auto-pairs'
 
 [[plugins]]
 # Yet Another Remote Plugin Framework for Neovim
@@ -75,10 +81,10 @@ if = '''!has('nvim')'''
 repo = 'neovim/python-client'
 if = '''!has('nvim')'''
 
-[[plugins]]
-repo = "neoclide/coc.nvim"
-merged = 0
-rev = "release"
-hook_add = """
-source ~/.dotfiles/.config/nvim/plugins/coc.rc.vim
-"""
+# [[plugins]]
+# repo = "neoclide/coc.nvim"
+# merged = 0
+# rev = "release"
+# hook_add = """
+# source ~/.dotfiles/.config/nvim/plugins/coc.rc.vim
+# """

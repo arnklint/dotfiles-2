@@ -74,7 +74,10 @@ autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 " JavaScript
 au BufNewFile,BufRead *.es6 setf javascript
 " TypeScript
-au BufNewFile,BufRead *.tsx setf typescript
+au BufNewFile,BufRead *.ts setf typescript
+au BufNewFile,BufRead *.tsx setf typescript.tsx
+" set filetypes as typescriptreact
+" au BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 " Markdown
 au BufNewFile,BufRead *.md set filetype=markdown
 " Flow
@@ -90,7 +93,7 @@ set cursorline
 " Set cursor line color on visual mode
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE guibg=Grey40
 
-highlight LineNr       cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
+highlight LineNr  cterm=none ctermfg=240 guifg=#2b506e guibg=#000000
 
 augroup BgHighlight
   autocmd!
@@ -121,7 +124,7 @@ augroup END
 " let g:vim_json_syntax_conceal = 0
 
 " Status line with git (fugitive)
-if exists('*fugitive#statusline')
+if !exists('*fugitive#statusline')
   set statusline=%F\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}[L%l/%L,C%03v]
   set statusline+=%=
   set statusline+=%{fugitive#statusline()}
@@ -151,19 +154,48 @@ let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
-  " call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  "call dein#add('Shougo/denite.nvim', {
+  "\ 'hook_add': 'source ~/.dotfiles/.config/nvim/plugins/denite.rc.vim',
+  "\ })
+
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-rhubarb')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('jlanzarotta/bufexplorer')
+
+
+  call dein#add('jiangmiao/auto-pairs')
+
+  call dein#add('ryanoasis/vim-devicons')
+  call dein#add('kristijanhusak/defx-icons')
+  call dein#add('kristijanhusak/defx-git')
+  call dein#add('Shougo/defx.nvim', {
+  \ 'depends': ['defx-git', 'defx-icons'],
+  \ 'hook_add': 'source ~/.dotfiles/.config/nvim/plugins/defx.rc.vim',
+  \ })
+
+  call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 }) 
+  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+
+  call dein#add('morhetz/gruvbox')
+  call dein#add('altercation/vim-colors-solarized')
+
+  call dein#add('peitalin/vim-jsx-typescript')
+
+  call dein#add('neoclide/coc.nvim', {
+  \ 'merged': 0,
+  \ 'rev': 'release',
+  \ 'hook_add': 'source ~/.dotfiles/.config/nvim/plugins/coc.rc.vim'
+  \ })
+
+
 
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-  " call dein#add('Shougo/deoplete.nvim')
-  " let g:deoplete#enable_at_startup = 1
-
-  " call dein#add('Shougo/neosnippet.vim')
-  " call dein#add('Shougo/neosnippet-snippets')
-
   call dein#end()
-  call dein#save_state()
+  " call dein#save_state()
 endif
 
 if dein#check_install()
@@ -171,6 +203,9 @@ if dein#check_install()
 endif
 
 filetype plugin indent on
+
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
 
 "-------------------------------------------------------------------------------
 " DevIcons
@@ -201,8 +236,9 @@ if exists('$TMUX')
     endif
   endfunction
 
+  echo system("tmux display-message -p '#{pane_title}'")
   let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
-  let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
+  let &t_ti = "\<Esc>]2;nvim\<Esc>\\" . &t_ti
   let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
 
   nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
@@ -221,6 +257,10 @@ nnoremap <D-left> :vertical resize -5<cr>
 nnoremap <D-down> :resize +5<cr>
 nnoremap <D-up> :resize -5<cr>
 nnoremap <D-right> :vertical resize +5<cr>
+
+" CTRL+P to open fzf
+" nnoremap <silent> <C-p> :FZF<cr>
+" nmap <C-P> :FZF<CR>
 
 "-------------------------------------------------------------------------------
 " imports

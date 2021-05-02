@@ -1,6 +1,9 @@
-nnoremap <S-C-p> "0p
+" Launch fuzzy file finder on ctrl+p
+nmap <C-P> :FZF<CR>
+
+" nnoremap <S-C-p> "0p
 " Delete without yank
-nnoremap <leader>d "_d
+" nnoremap <leader>d "_d
 " nnoremap x "_x
 
 " Increment/decrement
