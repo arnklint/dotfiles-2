@@ -166,6 +166,7 @@ if dein#load_state(s:dein_dir)
 
 
   call dein#add('jiangmiao/auto-pairs')
+  call dein#add('alampros/vim-styled-jsx')
 
   call dein#add('ryanoasis/vim-devicons')
   call dein#add('kristijanhusak/defx-icons')
@@ -236,7 +237,6 @@ if exists('$TMUX')
     endif
   endfunction
 
-  echo system("tmux display-message -p '#{pane_title}'")
   let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
   let &t_ti = "\<Esc>]2;nvim\<Esc>\\" . &t_ti
   let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
