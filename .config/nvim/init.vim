@@ -212,8 +212,9 @@ nmap <Leader>r :Tags<CR>
 " DevIcons
 "-------------------------------------------------------------------------------
 
+set guifont=DroidSansMono " "\ Nerd\ Font:h11
 " set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete\ Windows\ Compatible:h11
-" let g:webdevicons_enable_vimfiler = 1
+let g:webdevicons_enable_vimfiler = 1
 
 "-------------------------------------------------------------------------------
 " Color scheme
