@@ -140,6 +140,9 @@ set completeopt-=preview
 " localvimrc
 let g:localvimrc_ask = 0
 
+" leader + r -> ripgrep
+map <leader>r :Rg<space>
+
 "-------------------------------------------------------------------------------
 " Dein
 "-------------------------------------------------------------------------------
@@ -208,8 +211,8 @@ endif
 
 filetype plugin indent on
 
-nmap <Leader>t :Files<CR>
-nmap <Leader>r :Tags<CR>
+" nmap <Leader>t :Files<CR>
+" nmap <Leader>r :Tags<CR>
 
 "-------------------------------------------------------------------------------
 " DevIcons
