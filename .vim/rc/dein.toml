@@ -68,14 +68,14 @@ hook_post_update = '''
 # [[plugins]]
 # repo = 'jiangmiao/auto-pairs'
 
-[[plugins]]
-# Yet Another Remote Plugin Framework for Neovim
-repo = 'roxma/nvim-yarp'
-if = '''!has('nvim')'''
-
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-if = '''!has('nvim')'''
+# [[plugins]]
+# # Yet Another Remote Plugin Framework for Neovim
+# repo = 'roxma/nvim-yarp'
+# if = '''!has('nvim')'''
+# 
+# [[plugins]]
+# repo = 'roxma/vim-hug-neovim-rpc'
+# if = '''!has('nvim')'''
 
 [[plugins]]
 repo = 'neovim/python-client'

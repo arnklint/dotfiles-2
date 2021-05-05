@@ -29,6 +29,7 @@ Good to have:
 
 - `<mapleader>` is `,`
 - Search is done with RipGrep: <mapleader>r -> `,r phrase`
+- Go back to previous location: `CTRL+O`
 
 ## Tips and trix
 

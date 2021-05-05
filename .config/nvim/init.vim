@@ -169,12 +169,17 @@ if dein#load_state(s:dein_dir)
   call dein#add('alampros/vim-styled-jsx')
 
   call dein#add('ryanoasis/vim-devicons')
+
   call dein#add('kristijanhusak/defx-icons')
   call dein#add('kristijanhusak/defx-git')
   call dein#add('Shougo/defx.nvim', {
   \ 'depends': ['defx-git', 'defx-icons'],
   \ 'hook_add': 'source ~/.dotfiles/.config/nvim/plugins/defx.rc.vim',
   \ })
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
 
   call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 }) 
   call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
@@ -182,15 +187,13 @@ if dein#load_state(s:dein_dir)
   call dein#add('morhetz/gruvbox')
   call dein#add('altercation/vim-colors-solarized')
 
-  call dein#add('peitalin/vim-jsx-typescript')
+  " call dein#add('peitalin/vim-jsx-typescript')
 
   call dein#add('neoclide/coc.nvim', {
   \ 'merged': 0,
   \ 'rev': 'release',
   \ 'hook_add': 'source ~/.dotfiles/.config/nvim/plugins/coc.rc.vim'
   \ })
-
-
 
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
@@ -212,8 +215,7 @@ nmap <Leader>r :Tags<CR>
 " DevIcons
 "-------------------------------------------------------------------------------
 
-set guifont=DroidSansMono " "\ Nerd\ Font:h11
-" set guifont=Sauce\ Code\ Pro\ Light\ Nerd\ Font\ Complete\ Windows\ Compatible:h11
+set guifont=Source\ Code\ Pro\ for\ Powerline\:h11
 let g:webdevicons_enable_vimfiler = 1
 
 "-------------------------------------------------------------------------------

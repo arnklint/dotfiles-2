@@ -23,8 +23,6 @@ let g:lightline = {
       \   'modified': 'MyModified',
       \   'ale': 'ALEGetStatusLine'
       \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
 function! MyModified()
