@@ -4,7 +4,10 @@
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 sh ./installer.sh ~/.cache/dein
 
-ln -sf ~/.dotfiles/.config/* ~/.config/
+mkdir -p ~/.config/fish ~/.config/nvim
+
+ln -sf ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
+ln -sf ~/.dotfiles/.config/nvim/* ~/.config/nvim/
 
 ln -sf ~/.dotfiles/aliases ~/.aliases
 ln -sf ~/.dotfiles/zshrc ~/.zshrc
