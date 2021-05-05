@@ -21,6 +21,7 @@ command -qv nvim && alias vim nvim
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias f="rg --files --hidden --follow --no-ignore-vcs -g '!{node_modules,.git}' | fzf"
 
 # GIT
 alias gs="git status"
