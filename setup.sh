@@ -14,6 +14,8 @@ ln -sf ~/.dotfiles/zshrc ~/.zshrc
 
 ln -sf ~/.dotfiles/gitconfig ~/.gitconfig
 ln -sf ~/.dotfiles/gitmessage ~/.gitmessage
+ln -sf ~/.dotfiles/githooks ~/.githooks
+chmod u+x ~/.githooks/commit-msg
 
 ln -sf ~/.dotfiles/tmux.conf ~/.tmux.conf
 
