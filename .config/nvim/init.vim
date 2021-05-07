@@ -36,11 +36,13 @@ set t_BE=
 set nosc noru nosm
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
-"set showmatch
+set showmatch " Show matching brackets etc
 " How many tenths of a second to blink when matching brackets
 "set mat=2
+
 " Ignore case when searching
 set ignorecase
+
 " Be smart when using tabs ;)
 set smarttab
 " indents
@@ -66,22 +68,19 @@ endif
 " Add asterisks in block comments
 set formatoptions+=r
 
-set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
-
-autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
-autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md,.tsx,.ts
 
 " JavaScript
 au BufNewFile,BufRead *.es6 setf javascript
 " TypeScript
-au BufNewFile,BufRead *.ts setf typescript
-au BufNewFile,BufRead *.tsx setf typescript.tsx
+" au BufNewFile,BufRead *.ts setf typescript
+" au BufNewFile,BufRead *.tsx setf typescriptreact
 " set filetypes as typescriptreact
 " au BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+" au BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+
 " Markdown
 au BufNewFile,BufRead *.md set filetype=markdown
-" Flow
-au BufNewFile,BufRead *.flow set filetype=javascript
 
 "-------------------------------------------------------------------------------
 " Cursor line
@@ -168,7 +167,7 @@ if dein#load_state(s:dein_dir)
   call dein#add('jlanzarotta/bufexplorer')
 
 
-  call dein#add('jiangmiao/auto-pairs')
+  " call dein#add('jiangmiao/auto-pairs')
   call dein#add('alampros/vim-styled-jsx')
 
   call dein#add('ryanoasis/vim-devicons')
@@ -189,8 +188,6 @@ if dein#load_state(s:dein_dir)
 
   call dein#add('morhetz/gruvbox')
   call dein#add('altercation/vim-colors-solarized')
-
-  " call dein#add('peitalin/vim-jsx-typescript')
 
   call dein#add('neoclide/coc.nvim', {
   \ 'merged': 0,
@@ -263,10 +260,6 @@ nnoremap <D-left> :vertical resize -5<cr>
 nnoremap <D-down> :resize +5<cr>
 nnoremap <D-up> :resize -5<cr>
 nnoremap <D-right> :vertical resize +5<cr>
-
-" CTRL+P to open fzf
-" nnoremap <silent> <C-p> :FZF<cr>
-" nmap <C-P> :FZF<CR>
 
 "-------------------------------------------------------------------------------
 " imports

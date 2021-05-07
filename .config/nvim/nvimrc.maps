@@ -1,5 +1,6 @@
 " Launch fuzzy file finder on ctrl+p
-nmap <C-P> :FZF<CR>
+" nmap <C-P> :FZF<CR>
+silent! nmap <C-P> :GFiles --exclude-standard --others --cached<CR>
 
 " nnoremap <S-C-p> "0p
 " Delete without yank
