@@ -11,22 +11,6 @@ repo = 'stephpy/vim-yaml'
 on_ft = ['yaml']
 
 [[plugins]]
-repo = 'keith/swift.vim'
-on_ft = ['swift']
-
-[[plugins]]
-repo = 'digitaltoad/vim-jade'
-on_ft = ['jade']
-
-[[plugins]]
-repo = 'wavded/vim-stylus'
-on_ft = ['stylus']
-
-[[plugins]]
-repo = 'StanAngeloff/php.vim'
-on_ft = ['php']
-
-[[plugins]]
 repo = 'dag/vim-fish'
 on_ft = ['fish']
 

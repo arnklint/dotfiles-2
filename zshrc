@@ -32,3 +32,12 @@ fi;
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Branch name in zsh prompt
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+setopt PROMPT_SUBST
+PROMPT='%9c%{%F{green}%}$(parse_git_branch)%{%F{none}%} $ '

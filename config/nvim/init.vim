@@ -71,12 +71,11 @@ set formatoptions+=r
 set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md,.tsx,.ts
 
 " JavaScript
-au BufNewFile,BufRead *.es6 setf javascript
+" au BufNewFile,BufRead *.es6 setf javascript
 " TypeScript
 " au BufNewFile,BufRead *.ts setf typescript
 " au BufNewFile,BufRead *.tsx setf typescriptreact
 " set filetypes as typescriptreact
-" au BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 " au BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 " Markdown
@@ -170,13 +169,17 @@ if dein#load_state(s:dein_dir)
   " call dein#add('jiangmiao/auto-pairs')
   call dein#add('alampros/vim-styled-jsx')
 
+  call dein#add('leafgarland/typescript-vim')
+  call dein#add('peitalin/vim-jsx-typescript')
+
+
   call dein#add('ryanoasis/vim-devicons')
 
   call dein#add('kristijanhusak/defx-icons')
   call dein#add('kristijanhusak/defx-git')
   call dein#add('Shougo/defx.nvim', {
   \ 'depends': ['defx-git', 'defx-icons'],
-  \ 'hook_add': 'source ~/.dotfiles/.config/nvim/plugins/defx.rc.vim',
+  \ 'hook_add': 'source ~/.dotfiles/config/nvim/plugins/defx.rc.vim',
   \ })
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
@@ -192,14 +195,14 @@ if dein#load_state(s:dein_dir)
   call dein#add('neoclide/coc.nvim', {
   \ 'merged': 0,
   \ 'rev': 'release',
-  \ 'hook_add': 'source ~/.dotfiles/.config/nvim/plugins/coc.rc.vim'
+  \ 'hook_add': 'source ~/.dotfiles/config/nvim/plugins/coc.rc.vim'
   \ })
 
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
   call dein#end()
-  " call dein#save_state()
+  call dein#save_state()
 endif
 
 if dein#check_install()
@@ -269,12 +272,12 @@ if has("unix")
   let s:uname = system("uname -s")
   " Do Mac stuff
   if s:uname == "Darwin\n"
-    source ~/.dotfiles/.config/nvim/nvimrc.osx
+    source ~/.dotfiles/config/nvim/nvimrc.osx
   endif
 endif
 
-source ~/.dotfiles/.config/nvim/nvimrc.maps
-source ~/.dotfiles/.config/nvim/nvimrc.lightline
+source ~/.dotfiles/config/nvim/nvimrc.maps
+source ~/.dotfiles/config/nvim/nvimrc.lightline
 
 " allows for true color
 if exists("&termguicolors") && exists("&winblend")
