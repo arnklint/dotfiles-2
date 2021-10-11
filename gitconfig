@@ -5,8 +5,11 @@
 [commit]
     template = ~/.gitmessage
 
-[include]
-    path = ~/.gitconfig.local
+# [include]
+#    path = ~/.gitconfig.local
+
+[core]
+    hooksPath = ~/.githooks
 
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
@@ -39,5 +42,19 @@
 [credential]
     helper = !aws --profile va codecommit credential-helper $@
     UseHttpPath = true
-#[url "ssh://"]
+# [url "ssh://"]
 #    insteadOf = https://
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+[core]
+    excludesfile = /Users/jonas/.gitignore_global
+[diff]
+  	tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+    path = 
+[mergetool "nvimdiff"]
+    cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+[pull]
+    rebase = true
