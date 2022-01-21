@@ -19,6 +19,9 @@ chmod u+x ~/.githooks/commit-msg
 
 ln -sf ~/.dotfiles/tmux.conf ~/.tmux.conf
 
+# VSCode
+ln -sf ~/.dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+
 # Install powerline patched fonts
 git clone https://github.com/powerline/fonts.git && cd fonts && ./install.sh
 
