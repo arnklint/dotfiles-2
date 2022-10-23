@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
 
   -- RipGrep
   ----  use 'vim-ripgrep'
+  use 'duane9/nvim-rg'
 
   -- FZF
   use { 'junegunn/fzf', run = './install --bin', }

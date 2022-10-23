@@ -1,5 +1,9 @@
 # Meine liebe dotfiles
 
+Open nvim and run: 
+
+`:PackerInstall` - which will install all the nvim/vim plugins
+
 ## Installieren bitte
 
 `git clone git://github.com/arnklint/dotfiles-2.git ~/.dotfiles && ~/.dotfiles/setup.sh`

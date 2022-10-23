@@ -1,3 +1,4 @@
+" Inspired by https://github.com/mrLuisFer/neovim-dotfiles/blob/main/lua/plugins.lua
 lua require('plugins')
 lua require('keymappings')
 
@@ -9,6 +10,8 @@ augroup end
 
 " init autocmd
 autocmd!
+" disable auto indent 
+filetype indent off
 "" set script encoding
 scriptencoding utf-8
 "" stop loading config if it's on tiny or small
