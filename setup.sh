@@ -1,12 +1,12 @@
 #!/bin/bash
 
+# Install packer, a nvim plugin manager
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 # Install dein, a neovim plugin manager
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-sh ./installer.sh ~/.cache/dein
+# curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+# sh ./installer.sh ~/.cache/dein
 
-mkdir -p ~/.config/nvim ~/.config/fish
-
-ln -sf ~/.dotfiles/config/fish/* ~/.config/fish/
 ln -sf ~/.dotfiles/config/nvim/* ~/.config/nvim/
 
 ln -sf ~/.dotfiles/aliases ~/.aliases
