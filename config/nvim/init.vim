@@ -1,6 +1,9 @@
 " Inspired by https://github.com/mrLuisFer/neovim-dotfiles/blob/main/lua/plugins.lua
 lua require('plugins')
 lua require('keymappings')
+" lua require('lspconfig').tsserver.setup {}
+" lua require('lspconfig').solargraph.setup{}
+" lua require('lspconfig').svelte.setup{}
 
 " Run :PackerCompile whenever plugins.lua is updated
 augroup packer_user_config
@@ -51,7 +54,7 @@ set showmatch " Show matching brackets etc
 ""set mat=2
 "
 "" Ignore case when searching
-"set ignorecase
+set ignorecase
 
 "" Be smart when using tabs ;)
 "set smarttab
@@ -168,11 +171,11 @@ let g:closetag_close_shortcut = '<leader>>'
 "" let g:vim_json_syntax_conceal = 0
 
 " Status line with git (fugitive)
-if !exists('*fugitive#statusline')
-  set statusline=%F\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}[L%l/%L,C%03v]
-  set statusline+=%=
-  set statusline+=%{fugitive#statusline()}
-endif
+"if !exists('*fugitive#statusline')
+"  set statusline=%F\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}[L%l/%L,C%03v]
+"  set statusline+=%=
+"  set statusline+=%{fugitive#statusline()}
+"endif
 
 "" JSX
 "" let g:jsx_ext_required = 0
@@ -180,6 +183,7 @@ endif
 "" Tern
 "" Disable auto preview window
 "set completeopt-=preview
+set completeopt=menu,menuone,noselect
 
 "" localvimrc
 "let g:localvimrc_ask = 0
@@ -281,36 +285,36 @@ map <leader>r :Rg<space>
 "-------------------------------------------------------------------------------
 " Same pane switching commands as VIM, but in Tmux
 "-------------------------------------------------------------------------------
-if exists('$TMUX')
-  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
-    let previous_winnr = winnr()
-    silent! execute "wincmd " . a:wincmd
-    if previous_winnr == winnr()
-      call system("tmux select-pane -" . a:tmuxdir)
-      redraw!
-    endif
-  endfunction
-
-  let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
-  let &t_ti = "\<Esc>]2;nvim\<Esc>\\" . &t_ti
-  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
-
-  nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
-  nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
-  nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
-  nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
-else
-  map <C-h> <C-w>h
-  map <C-j> <C-w>j
-  map <C-k> <C-w>k
-  map <C-l> <C-w>l
-endif
+"if exists('$TMUX')
+"  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+"    let previous_winnr = winnr()
+"    silent! execute "wincmd " . a:wincmd
+"    if previous_winnr == winnr()
+"      call system("tmux select-pane -" . a:tmuxdir)
+"      redraw!
+"    endif
+"  endfunction
+"
+"  let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
+"  let &t_ti = "\<Esc>]2;nvim\<Esc>\\" . &t_ti
+"  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
+"
+"  nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+"  nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+"  nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+"  nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+"else
+"  map <C-h> <C-w>h
+"  map <C-j> <C-w>j
+"  map <C-k> <C-w>k
+"  map <C-l> <C-w>l
+"endif
 
 " resize current buffer by +/- 5
-nnoremap <D-left> :vertical resize -5<cr>
-nnoremap <D-down> :resize +5<cr>
-nnoremap <D-up> :resize -5<cr>
-nnoremap <D-right> :vertical resize +5<cr>
+" nnoremap <D-left> :vertical resize -5<cr>
+" nnoremap <D-down> :resize +5<cr>
+" nnoremap <D-up> :resize -5<cr>
+" nnoremap <D-right> :vertical resize +5<cr>
 
 ""-------------------------------------------------------------------------------
 "" imports
