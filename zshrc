@@ -47,3 +47,6 @@ PROMPT='%9c%{%F{green}%}$(parse_git_branch)%{%F{none}%} $ '
 
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
+
+export DENO_INSTALL="/Users/jonas/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"

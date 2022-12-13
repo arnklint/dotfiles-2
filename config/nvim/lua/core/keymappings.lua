@@ -1,3 +1,9 @@
+vim.g.mapleader = ","
+
+vim.g.cursorline = true
+vim.wo.number = true
+vim.wo.relativenumber = true
+
 local function register_mappings(mappings, default_options)
   for mode, mode_mappings in pairs(mappings) do
     for _, mapping in pairs(mode_mappings) do

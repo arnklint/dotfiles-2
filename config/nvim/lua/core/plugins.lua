@@ -37,6 +37,9 @@ return require('packer').startup(function(use)
   -- Keybindings info
   use 'liuchengxu/vim-which-key'
 
+  -- Theme
+  use 'ellisonleao/gruvbox.nvim'
+
   -- UI
   --use {
     --'glepnir/galaxyline.nvim',
@@ -72,10 +75,16 @@ return require('packer').startup(function(use)
   }
 
   -- LSP
-  use 'neovim/nvim-lspconfig'
   use 'onsails/lspkind-nvim'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-treesitter/nvim-treesitter-refactor' }
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { { 'nvim-lua/plenary.nvim' } } }
+
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
 
   -- Autocompletion
   use {
@@ -88,63 +97,6 @@ return require('packer').startup(function(use)
     }
   }
 
-  local cmp = require'cmp'
-  local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
-
-  cmp.setup({
-    snippet = {
-      -- REQUIRED - you must specify a snippet engine
-      expand = function(args)
-        vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-      end,
-    },
-    window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
-    },
-    mapping = cmp.mapping.preset.insert({
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-      -- ["<Tab>"] = cmp.mapping(
-      --   function(fallback)
-      --     cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
-      --   end,
-      --   { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
-      -- ),
-      -- ["<S-Tab>"] = cmp.mapping(
-      --   function(fallback)
-      --     cmp_ultisnips_mappings.jump_backwards(fallback)
-      --   end,
-      --   { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
-      -- ),
-    }),
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'ultisnips' }, -- For ultisnips users.
-    }, {
-      { name = 'buffer' },
-    })
-  })
-
-  -- Set configuration for specific filetype.
-  cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
-      { name = 'git' }, -- You can specify the `cmp_git` source if you were installed it.
-    }, {
-      { name = 'buffer' },
-    })
-  })
-
-  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline({ '/', '?' }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' }
-    }
-  })
 
   -- Navigate in tmux
   use({
@@ -152,15 +104,6 @@ return require('packer').startup(function(use)
     config = function() require("tmux").setup() end
   })
 
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
 
   -- Set up lspconfig.
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -198,8 +141,8 @@ return require('packer').startup(function(use)
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Place last 
-  --if packer_bootstrap then
-    --require('packer').sync()
-  --end
+  -- if packer_bootstrap then
+  --   require('packer').sync()
+  -- end
 end)
 

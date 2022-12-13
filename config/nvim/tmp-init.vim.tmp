@@ -1,15 +1,15 @@
 " Inspired by https://github.com/mrLuisFer/neovim-dotfiles/blob/main/lua/plugins.lua
-lua require('plugins')
-lua require('keymappings')
+"lua require('core.plugins')
+"lua require('core.keymappings')
 " lua require('lspconfig').tsserver.setup {}
 " lua require('lspconfig').solargraph.setup{}
 " lua require('lspconfig').svelte.setup{}
 
 " Run :PackerCompile whenever plugins.lua is updated
-augroup packer_user_config
-  autocmd!
-  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-augroup end
+" augroup packer_user_config
+"   autocmd!
+"   autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+" augroup end
 
 " init autocmd
 autocmd!

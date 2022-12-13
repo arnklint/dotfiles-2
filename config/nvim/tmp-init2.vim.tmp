@@ -1,0 +1,22 @@
+" From https://www.youtube.com/watch?v=J9yqSdvAKXY
+
+require('core.keymappings')
+
+require('core.plugins')
+require('core.plugin_config')
+
+-- lua require('core.keymappings')
+-- ""
+-- ""lua require('core.plugins')
+-- ""lua require('core.plugin_config')
+
+" if exists("&termguicolors") && exists("&winblend")
+"   let g:neosolarized_termtrans=1
+"   " runtime ./colors/solarized_true.vim
+"   " runtime ./colors/molokai.vim
+"   runtime ./colors/gruvbox.vim
+"   set termguicolors
+"   set winblend=0
+"   set wildoptions=pum
+"   set pumblend=5
+" endif
