@@ -1,1 +1,1 @@
-ripgrep neovim nvm tmux ripgrep fzf cmatrix wget
+ripgrep neovim nvm tmux ripgrep fzf cmatrix wget shottr spectacle gifox keycastr
