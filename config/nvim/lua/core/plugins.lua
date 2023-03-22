@@ -40,6 +40,9 @@ return require('packer').startup(function(use)
   -- Theme
   use 'ellisonleao/gruvbox.nvim'
 
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'ray-x/go.nvim'
+
   -- UI
   --use {
     --'glepnir/galaxyline.nvim',
@@ -86,15 +89,69 @@ return require('packer').startup(function(use)
     "neovim/nvim-lspconfig",
   }
 
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v1.x',
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},             -- Required
+      {'williamboman/mason.nvim'},           -- Optional
+      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},         -- Required
+      {'hrsh7th/cmp-nvim-lsp'},     -- Required
+      {'hrsh7th/cmp-buffer'},       -- Optional
+      {'hrsh7th/cmp-path'},         -- Optional
+      {'saadparwaiz1/cmp_luasnip'}, -- Optional
+      {'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},             -- Required
+      {'rafamadriz/friendly-snippets'}, -- Optional
+    }
+  }
+
   -- Autocompletion
   use {
     "hrsh7th/nvim-cmp",
     requires = {
       "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp",
-      'quangnguyen30192/cmp-nvim-ultisnips', 'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/cmp-nvim-lua',
       'octaltree/cmp-look', 'hrsh7th/cmp-path', 'hrsh7th/cmp-calc',
-      'f3fora/cmp-spell', 'hrsh7th/cmp-emoji'
-    }
+      'f3fora/cmp-spell', 'hrsh7th/cmp-emoji',
+      'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' --snippets
+    },
+    --'quangnguyen30192/cmp-nvim-ultisnips', 
+    -- config = function()
+    --   local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
+    --   require("cmp").setup({
+    --     snippet = {
+    --       expand = function(args)
+    --         vim.fn["UltiSnips#Anon"](args.body)
+    --       end,
+    --     },
+    --     sources = {
+    --       { name = "ultisnips" },
+    --       -- more sources
+    --     },
+    --     -- recommended configuration for <Tab> people:
+    --     mapping = {
+    --       ["<Tab>"] = cmp.mapping(
+    --         function(fallback)
+    --           cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+    --         end,
+    --         { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
+    --       ),
+    --       ["<S-Tab>"] = cmp.mapping(
+    --         function(fallback)
+    --           cmp_ultisnips_mappings.jump_backwards(fallback)
+    --         end,
+    --         { "i", "s", --[[ "c" (to enable the mapping in command mode) ]] }
+    --       ),
+    --     },
+    --   })
+    -- end,
   }
 
 
@@ -106,38 +163,15 @@ return require('packer').startup(function(use)
 
 
   -- Set up lspconfig.
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  local servers = { 'tsserver', 'solargraph', 'svelte' }
-  local lspconfig = require('lspconfig')
-  for _, lsp in pairs(servers) do
-    lspconfig[lsp].setup {
-      capabilities = capabilities,
-    }
-  end
-
-  -- Indentation
-  -- require'nvim-treesitter.configs'.setup {
-  --   indent = {
-  --     enable = true
-  --   },
-  --   refactor = {
-  --     refactor = {
-  --       highlight_current_scope = { enable = true },
-  --     },
-  --     highlight_definitions = {
-  --       enable = true,
-  --       -- Set to false if you have an `updatetime` of ~100.
-  --       clear_on_cursor_move = true,
-  --     },
-  --     smart_rename = {
-  --       enable = true,
-  --       keymaps = {
-  --         smart_rename = "grr",
-  --       },
-  --     },
-  --   },
-  -- }
+  -- local servers = { 'tsserver', 'solargraph', 'svelte' }
+  -- local lspconfig = require('lspconfig')
+  -- for _, lsp in pairs(servers) do
+  --   lspconfig[lsp].setup {
+  --     capabilities = capabilities,
+  --   }
+  -- end
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Place last 

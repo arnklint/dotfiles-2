@@ -4,6 +4,10 @@ vim.g.cursorline = true
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+
 local function register_mappings(mappings, default_options)
   for mode, mode_mappings in pairs(mappings) do
     for _, mapping in pairs(mode_mappings) do
@@ -107,4 +111,8 @@ register_mappings(mappings, { silent = true, noremap = true })
 
 vim.api.nvim_set_keymap('n', '<c-P>',
   "<cmd>lua require('fzf-lua').files()<CR>",
+  { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<leader>r',
+  "<cmd>lua require('fzf-lua').grep()<CR>",
   { noremap = true, silent = true })
