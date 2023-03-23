@@ -41,3 +41,12 @@ parse_git_branch() {
 }
 setopt PROMPT_SUBST
 PROMPT='%9c%{%F{green}%}$(parse_git_branch)%{%F{none}%} $ '
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"
+
+# Added by serverless binary installer
+export PATH="$HOME/.serverless/bin:$PATH"
+
+export DENO_INSTALL="/Users/jonas/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
