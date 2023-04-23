@@ -6,7 +6,7 @@ Open nvim and run:
 
 ## Installieren bitte
 
-`git clone git://github.com/arnklint/dotfiles-2.git ~/.dotfiles && ~/.dotfiles/setup.sh`
+`git clone https://github.com/arnklint/dotfiles-2.git ~/.dotfiles && ~/.dotfiles/setup.sh`
 
 ## Update
 
