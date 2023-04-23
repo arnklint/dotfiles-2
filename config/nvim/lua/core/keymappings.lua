@@ -8,6 +8,10 @@ vim.o.expandtab = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 
+-- search and ignore case
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
 local function register_mappings(mappings, default_options)
   for mode, mode_mappings in pairs(mappings) do
     for _, mapping in pairs(mode_mappings) do
