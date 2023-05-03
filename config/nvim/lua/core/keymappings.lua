@@ -22,44 +22,88 @@ local function register_mappings(mappings, default_options)
   end
 end
 
+function map(mode, lhs, rhs, opts)
+  local options = { noremap = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+-- Exit Insert Mode
+map("i", "kk", "<ESC>")
+map("i", "jj", "<ESC>")
+map("i", "jk", "<ESC>")
+
+-- Terminal window navigation
+map("i", "<C-h>", "<C-\\><C-N><C-w>h")
+map("i", "<C-j>", "<C-\\><C-N><C-w>j")
+map("i", "<C-k>", "<C-\\><C-N><C-w>k")
+map("i", "<C-l>", "<C-\\><C-N><C-w>l")
+
+-- moving text
+map("i", "<C-j>", "<esc><cmd>m .+1<CR>==")
+map("i", "<C-k>", "<esc><cmd>m .-2<CR>==")
+
+-- Better window movement
+map("n", "<C-h>", "<C-w>h", { silent = true })
+map("n", "<C-j>", "<C-w>j", { silent = true })
+map("n", "<C-k>", "<C-w>k", { silent = true })
+map("n", "<C-l>", "<C-w>l", { silent = true })
+
+map("n", "<C-Up>", "<cmd>resize -2<CR>", { silent = true })
+map("n", "<C-Down>", "<cmd>resize +2<CR>", { silent = true })
+map("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { silent = true })
+map("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { silent = true })
+
+-- escape clears highlighting
+map("n", "<esc>", "<cmd>noh<cr><esc>")
+
+-- hop words
+map("n", "f", "<cmd>HopWord<cr>")
+map("n", "F", "<cmd>HopLine<cr>")
+
+-- yank to end of line on Y
+map("n", "Y", "y$")
+
 local mappings = {
   i = {
     -- Insert mode
-    { "kk", "<ESC>" },
-    { "jj", "<ESC>" },
-    { "jk", "<ESC>" },
+    -- { "kk", "<ESC>" },
+    -- { "jj", "<ESC>" },
+    -- { "jk", "<ESC>" },
     -- Terminal window navigation
-    { "<C-h>", "<C-\\><C-N><C-w>h" },
-    { "<C-j>", "<C-\\><C-N><C-w>j" },
-    { "<C-k>", "<C-\\><C-N><C-w>k" },
-    { "<C-l>", "<C-\\><C-N><C-w>l" },
+    -- { "<C-h>", "<C-\\><C-N><C-w>h" },
+    -- { "<C-j>", "<C-\\><C-N><C-w>j" },
+    -- { "<C-k>", "<C-\\><C-N><C-w>k" },
+    -- { "<C-l>", "<C-\\><C-N><C-w>l" },
     -- moving text
-    { "<C-j>", "<esc><cmd>m .+1<CR>==" },
-    { "<C-k>", "<esc><cmd>m .-2<CR>==" },
+    -- { "<C-j>", "<esc><cmd>m .+1<CR>==" },
+    -- { "<C-k>", "<esc><cmd>m .-2<CR>==" },
     -- Ctrl single quote for backtick
-    { "<C-'>", "``<esc>i" },
+    -- { "<C-'>", "``<esc>i" },
   },
   n = {
     -- Normal mode
     -- Better window movement
-    { "<C-h>", "<C-w>h", { silent = true } },
-    { "<C-j>", "<C-w>j", { silent = true } },
-    { "<C-k>", "<C-w>k", { silent = true } },
-    { "<C-l>", "<C-w>l", { silent = true } },
+    -- { "<C-h>", "<C-w>h", { silent = true } },
+    -- { "<C-j>", "<C-w>j", { silent = true } },
+    -- { "<C-k>", "<C-w>k", { silent = true } },
+    -- { "<C-l>", "<C-w>l", { silent = true } },
     -- Resize with arrows
-    { "<C-Up>", "<cmd>resize -2<CR>", { silent = true } },
-    { "<C-Down>", "<cmd>resize +2<CR>", { silent = true } },
-    { "<C-Left>", "<cmd>vertical resize -2<CR>", { silent = true } },
-    { "<C-Right>", "<cmd>vertical resize +2<CR>", { silent = true } },
+    -- { "<C-Up>", "<cmd>resize -2<CR>", { silent = true } },
+    -- { "<C-Down>", "<cmd>resize +2<CR>", { silent = true } },
+    -- { "<C-Left>", "<cmd>vertical resize -2<CR>", { silent = true } },
+    -- { "<C-Right>", "<cmd>vertical resize +2<CR>", { silent = true } },
     -- Ctrl + p fuzzy files
     -- { "<C-p>", telescope_find_files },
     -- escape clears highlighting
-    { "<esc>", "<cmd>noh<cr><esc>" },
+    -- { "<esc>", "<cmd>noh<cr><esc>" },
     -- hop words
-    { "f", "<cmd>HopWord<cr>" },
-    { "F", "<cmd>HopLine<cr>" },
+    -- { "f", "<cmd>HopWord<cr>" },
+    -- { "F", "<cmd>HopLine<cr>" },
     -- yank to end of line on Y
-    { "Y", "y$" },
+    -- { "Y", "y$" },
     -- lsp mappings
     { "K", vim.lsp.buf.hover },
     { "<C-k>", vim.lsp.buf.signature_help },

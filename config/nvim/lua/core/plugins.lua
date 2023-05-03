@@ -23,6 +23,9 @@ return require('packer').startup(function(use)
   use 'alvan/vim-closetag'
   use 'jiangmiao/auto-pairs'
 
+  -- Copilot
+  use 'github/copilot.vim'
+
   -- Movement
   use 'preservim/nerdcommenter' -- <leader>cc to make comment
   use {
