@@ -24,7 +24,16 @@ return require('packer').startup(function(use)
   use 'jiangmiao/auto-pairs'
 
   -- Copilot
-  use 'github/copilot.vim'
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/node/v18.12.1/bin/node"
+      })
+    end,
+  }
 
   -- Movement
   use 'preservim/nerdcommenter' -- <leader>cc to make comment
@@ -178,8 +187,8 @@ return require('packer').startup(function(use)
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Place last 
-  -- if packer_bootstrap then
-  --   require('packer').sync()
-  -- end
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)
 
