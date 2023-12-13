@@ -50,3 +50,6 @@ export PATH="$HOME/.serverless/bin:$PATH"
 
 export DENO_INSTALL="/Users/jonas/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+export PATH="$PATH:$GOPATH/bin"
+export PATH=$PATH:$(go env GOPATH)/bin
