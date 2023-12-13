@@ -5,13 +5,25 @@ alias ....="cd ../../.."
 alias ~="cd ~"
 alias cl='[ $[$RANDOM % 2] = 0 ] && cmatrix; clear || clear'
 
+alias rua='rush update && cd b2b && rush update && cd ../mitt-telia && rush update && cd ../support && rush update && cd ../rex && rush update'
+
+alias rub='rush update && rush a && rushx build'
+alias rud='rush update && rush a && rushx dev'
+alias ru='rush update'
+
+# GITHUB
+alias pulls="gh pr ls --author @me -w"
+
 # GIT
-alias gs="git status"
-alias gb="git branch"
-alias gd="git diff"
-alias gc="git commit -v"
-alias gp="git push"
+alias gmm="git pull && git checkout main && git pull && gcl && git merge main"
+alias gcl="git checkout @{-1}"
 alias gco="git checkout"
+alias gc="git commit -v"
+alias gbl="git branch --sort=-committerdate"
+alias gb="git branch"
+alias gs="git status"
+alias gd="git diff"
+alias gp="git push"
 alias ga="git add"
 alias gg="git grep"
 alias gt="git tag"
@@ -24,15 +36,7 @@ alias glp="git log --pretty=format:\"%h - %an, %ar: %s\""
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 
-# Lock the screen (when going AFK)
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app"
-
 # Docker related
 alias dm="docker-machine"
 alias d="docker"
 alias dc="docker-compose"
-
-# Postgres related
-alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
